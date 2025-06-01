@@ -13,14 +13,17 @@ in {
     (importApply ./modules)
   ];
 
-  flake.nixosConfigurations = {
-    gimli = inputs.nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = nixosModules ++ (module-list-from-dir "hosts/gimli");
-    };
-    generic-vm = inputs.nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = nixosModules ++ (module-list-from-dir "hosts/generic-vm");
+  flake = {
+    lib = { inherit module-list-from-dir; };
+    nixosConfigurations = {
+      gimli = inputs.nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = nixosModules ++ (module-list-from-dir "hosts/gimli");
+      };
+      generic-vm = inputs.nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = nixosModules ++ (module-list-from-dir "hosts/generic-vm");
+      };
     };
   };
 }
