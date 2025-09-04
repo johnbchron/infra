@@ -4,6 +4,8 @@
   hardware.asahi-hardware.enable = true;
   services.idevices.enable = true;
 
+  graphical.enable = true;
+
   # networking = {
   #   networkmanager.enable = true;
   #   hostName = "gimli";
