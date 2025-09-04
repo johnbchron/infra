@@ -5,9 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     apple-silicon-support = {
-      # url = "github:tpwrules/nixos-apple-silicon";
-      # url = "github:schphe/nixos-apple-silicon";
-      url = "github:kitten/nixos-apple-silicon/edge";
+      url = "github:nix-community/nixos-apple-silicon";
     };
   };
 

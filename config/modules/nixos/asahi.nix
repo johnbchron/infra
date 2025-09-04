@@ -10,7 +10,6 @@ in {
       # switch asahi to default off
       enable = cfg.enable;
 
-      useExperimentalGPUDriver = lib.mkIf cfg.enable true;
       peripheralFirmwareDirectory = lib.mkIf cfg.enable ../../../firmware;
     };
 
