@@ -1,5 +1,7 @@
-{ pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
   users = {
+    defaultUserShell = lib.mkIf config.development.enable pkgs.zsh;
+
     users.jlewis = {
       description = "John Lewis";
 
@@ -8,7 +10,6 @@
 
       isNormalUser = true;
       extraGroups = [ "wheel" ];
-      defaultUserShell = pkgs.zsh;
     };
   };
 }
