@@ -6,6 +6,7 @@
 
   graphical.enable = true;
 
+  networking.hostName = "gimli";
   # networking = {
   #   networkmanager.enable = true;
   #   hostName = "gimli";
