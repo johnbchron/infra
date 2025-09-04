@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   users = {
     users.jlewis = {
       description = "John Lewis";
@@ -8,6 +8,7 @@
 
       isNormalUser = true;
       extraGroups = [ "wheel" ];
+      defaultUserShell = pkgs.zsh;
     };
   };
 }
