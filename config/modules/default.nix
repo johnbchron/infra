@@ -13,6 +13,7 @@ localFlake: { inputs, ... }: {
   in {
     nixosModules = module-dir-to-imported-map "nixos" // {
       apple-silicon-support = inputs.apple-silicon-support.nixosModules.default;
+      home-manager = inputs.home-manager.nixosModules.home-manager;
     };
     homeManagerModules = module-dir-to-imported-map "home";
   };

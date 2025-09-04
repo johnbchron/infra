@@ -2,6 +2,15 @@ localFlake: { inputs, config, systems, ... }: let
   inherit (localFlake.flake-parts-lib) importApply;
 
   nixosModules = builtins.attrValues config.flake.nixosModules;
+  homeManagerModule = {
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      users.jlewis = { ... }: {
+        imports = builtins.attrValues config.flake.homeManagerModules;
+      };
+    };
+  };
 
   # collection of modules from a directory
   module-list-from-dir = dir: (with builtins;
@@ -18,11 +27,11 @@ in {
     nixosConfigurations = {
       gimli = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        modules = nixosModules ++ (module-list-from-dir "hosts/gimli");
+        modules = nixosModules ++ (module-list-from-dir "hosts/gimli") ++ [ homeManagerModule ];
       };
       generic-vm = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        modules = nixosModules ++ (module-list-from-dir "hosts/generic-vm");
+        modules = nixosModules ++ (module-list-from-dir "hosts/generic-vm") ++ [ homeManagerModule ];
       };
     };
   };
