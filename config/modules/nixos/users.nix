@@ -3,8 +3,8 @@
     users.jlewis = {
       description = "John Lewis";
 
-      hashedPassword =
-        "$y$j9T$t9QF7ZvlqxQW1fyt1oXY71$zVNJaxzDDt/ylja/9ypszO.Ii.wuESwqC.1HN43OLx1";
+      # produced with `mkpasswd -m sha512crypt`
+      hashedPassword = "$6$03MpyGkCwYHr8IrR$CqN9OyLrRJX1Afsr4h58Dg2gM9.y650j5zO0T7PwMwrth5o.5yzPfzoKvjB2IgP2ozHKa2uCH4CfrCB2JDz1P1";
 
       isNormalUser = true;
       extraGroups = [ "wheel" ];
