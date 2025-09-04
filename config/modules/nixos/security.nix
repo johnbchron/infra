@@ -1,12 +1,7 @@
-{ lib, config, ... }: let
+{ lib, config, ... } @ top: let
   cfg = config.security;
-
-  mkEnableOptionDefaultOn = desc: (lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    example = true;
-    description = desc;
-  });
+  utils = (import ../utils.nix) top;
+  inherit (utils) mkEnableOptionDefaultOn;
 in {
   options = {
     security.replace-sudo = {
