@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: let
+{ lib, config, pkgs, system, iosevka-pin, ... }: let
   cfg = config.graphical;
 in {
   options = {
@@ -32,5 +32,46 @@ in {
     ]);
 
     networking.networkmanager.enable = true;
+
+    nixpkgs = {
+      config = {
+        allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+          "obsidian"
+        ];
+      };
+
+      overlays = let
+        # pinned nixpkgs for iosevka, with the customizations
+        iosevka-pin-pkgs = import iosevka-pin {
+          inherit system;
+          overlays = [ (import ../../../extra/iosevka-config.nix) ];
+        };
+        iosevka-overlay = final: prev: {
+          inherit (iosevka-pin-pkgs) iosevka-custom iosevka-term-custom;
+        };
+      in [
+        iosevka-overlay
+      ];
+    };
+
+    services.pipewire.enable = true;
+    services.pipewire.wireplumber.enable = true;
+
+    programs.dconf.enable = true;
+    services.printing.enable = true;
+
+    fonts.packages = with pkgs; [
+      inter
+      roboto
+      oswald
+
+      iosevka-custom
+      iosevka-term-custom
+
+      ia-writer-quattro ia-writer-duospace
+
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+    ];
   };
 }

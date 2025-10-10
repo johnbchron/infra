@@ -1,5 +1,8 @@
-localFlake: { inputs, config, systems, ... }: let
+localFlake: { inputs, config, systems, alacritty-theme, ... }: let
   inherit (localFlake.flake-parts-lib) importApply;
+
+  system = "aarch64-linux";
+  specialArgs = inputs // { inherit inputs system; };
 
   nixosModules = builtins.attrValues config.flake.nixosModules;
   homeManagerModule = {
@@ -9,6 +12,7 @@ localFlake: { inputs, config, systems, ... }: let
       users.jlewis = { ... }: {
         imports = builtins.attrValues config.flake.homeManagerModules;
       };
+      extraSpecialArgs = specialArgs;
     };
   };
 
@@ -26,12 +30,14 @@ in {
     lib = { inherit module-list-from-dir; };
     nixosConfigurations = {
       gimli = inputs.nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
+        inherit system;
         modules = nixosModules ++ (module-list-from-dir "hosts/gimli") ++ [ homeManagerModule ];
+        inherit specialArgs;
       };
       generic-vm = inputs.nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
+        inherit system;
         modules = nixosModules ++ (module-list-from-dir "hosts/generic-vm") ++ [ homeManagerModule ];
+        inherit specialArgs;
       };
     };
   };

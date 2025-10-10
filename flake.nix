@@ -7,7 +7,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    alacritty-theme = {
+      url = "github:alacritty/alacritty-theme";
+      flake = false;
+    };
+    iosevka-pin.url = "github:NixOS/nixpkgs?rev=77a52192a7502c2385027651c81d269cb106dbde";
 
     apple-silicon-support = {
       url = "github:nix-community/nixos-apple-silicon";

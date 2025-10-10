@@ -5,13 +5,25 @@
 in {
   options = {
     development = {
-      enable = mkEnableOptionDefaultOn "replace sudo with sudo-rs";
+      enable = mkEnableOptionDefaultOn "enable development tools";
     };
   };
 
-  # enable zsh for default user shell
-  config.programs.zsh.enable = lib.mkIf cfg.enable true;
 
-  # set /bin/sh to dash for speed
-  config.environment.binsh = lib.mkIf cfg.enable pkgs.dash;
+  config = lib.mkIf cfg.enable {
+    # enable zsh for default user shell
+    programs.zsh.enable = lib.mkIf cfg.enable true;
+
+    # set /bin/sh to dash for speed
+    # environment.binsh = lib.mkIf cfg.enable pkgs.dash;
+
+    environment.variables = {
+      "VISUAL" = "${pkgs.helix}/bin/hx";
+      "EDITOR" = "${pkgs.helix}/bin/hx";
+    };
+
+    services.openssh.enable = true;
+
+    virtualisation.docker.enable = true;
+  };
 }

@@ -1,10 +1,13 @@
 { osConfig, ... }: let
   cfg = osConfig.development;
-in {
-  imports = if cfg.enable then [
+
+  base = [
     ./shell
     ./programs.nix
-    ./git.nix
+    ./vcs.nix
     ./helix.nix
-  ] else [];
+  ];
+  graphical = if osConfig.graphical.enable then [ ./graphical ] else [];
+in {
+  imports = if cfg.enable then (base ++ graphical) else [];
 }
