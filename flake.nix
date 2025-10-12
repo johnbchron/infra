@@ -13,6 +13,8 @@
     };
     iosevka-pin.url = "github:NixOS/nixpkgs?rev=77a52192a7502c2385027651c81d269cb106dbde";
 
+    jj-watch.url = "github:johnbchron/jj-watch";
+
     apple-silicon-support = {
       url = "github:nix-community/nixos-apple-silicon";
     };

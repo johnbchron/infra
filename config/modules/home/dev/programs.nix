@@ -5,6 +5,7 @@
 
     # vcs
     gitoxide
+    jj-watch
 
     # replace coreutils with rust rewrite
     uutils-coreutils-noprefix
