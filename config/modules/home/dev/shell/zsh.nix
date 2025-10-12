@@ -16,6 +16,7 @@
       ls = "eza";
       rt = "zellij action rename-tab \"$(basename \"$PWD\")\" && echo \"renamed zellij tab to \\\"$(basename \"$PWD\")\\\" (working directory)\"";
       q = "exit";
+      rebuild = "sudo nixos-rebuild switch --flake /home/jlewis/infra";
       speed = "cfspeedtest";
       inherit tree;
       treeg = tree + " --git-ignore";
