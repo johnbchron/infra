@@ -33,8 +33,6 @@
   programs.git = {
     enable = true;
     ignores = [ ".direnv" "result" ".jj" ];
-    userName = "John Lewis";
-    userEmail = "github@jlewis.sh";
 
     signing = {
       # signByDefault = true;
@@ -43,7 +41,11 @@
 
     lfs.enable = true;
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "John Lewis";
+        email = "github@jlewis.sh";
+      };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       diff.external = "${pkgs.difftastic}/bin/difft";
