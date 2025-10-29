@@ -13,7 +13,7 @@ in {
       # other apps
       anki # flashcards
       obsidian # notes & stuff
-      rpi-imager # disk imaging
+      # rpi-imager # disk imaging
       obs-studio # recording & streaming
       blender # video editing & compositing
       qdirstat # disk space usage 
