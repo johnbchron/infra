@@ -49,8 +49,16 @@ in {
         iosevka-overlay = final: prev: {
           inherit (iosevka-pin-pkgs) iosevka-custom iosevka-term-custom;
         };
+        difftastic-jemalloc-fixup-overlay = final: prev: {
+          difftastic = prev.difftastic.overrideAttrs (
+            prev.lib.optionalAttrs (final.stdenv.system == "aarch64-linux") {
+              JEMALLOC_SYS_WITH_LG_PAGE = 16;
+            }
+          );
+        };
       in [
         iosevka-overlay
+        difftastic-jemalloc-fixup-overlay
       ];
     };
 
