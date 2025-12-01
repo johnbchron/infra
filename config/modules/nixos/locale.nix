@@ -1,6 +1,6 @@
 { ... }: {
-  # time.timeZone = "America/Los_Angeles";
-  time.timeZone = "America/Chicago";
+  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "America/Chicago";
   # time.timeZone = "Europe/Zurich";
 
   # internationalization
