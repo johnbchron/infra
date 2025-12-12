@@ -56,9 +56,20 @@ in {
             }
           );
         };
+        # floorp overlay for crazy FOD issues
+        # https://github.com/NixOS/nixpkgs/issues/465600
+        floorp-bin-overlay = final: prev: {
+          floorp-bin-unwrapped = prev.floorp-bin-unwrapped.overrideAttrs (old: {
+            src = final.fetchurl {
+              url = "https://github.com/Floorp-Projects/Floorp/releases/download/v12.7.0/floorp-linux-aarch64.tar.xz";
+              hash = "sha256-iQyCMY57+I2rWtW4irF9mHhGm92qsO5bueWZkoqTcwk=";
+            };
+          });
+        };
       in [
         iosevka-overlay
         difftastic-jemalloc-fixup-overlay
+        floorp-bin-overlay
       ];
     };
 
