@@ -22,7 +22,7 @@ in {
 
       # use full display height
       kernelParams = lib.mkIf cfg.enable [
-        "apple_dcp.show_notch=1"
+        "appledrm.show_notch=1"
       ];
 
       # just for fun
