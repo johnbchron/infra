@@ -21,7 +21,7 @@
         color-modes = true;
         # idle-timeout = 200;
         text-width = 80;
-        end-of-line-diagnostics = "hint";
+        # end-of-line-diagnostics = "hint";
       
         statusline = {
           right = [
@@ -56,9 +56,9 @@
 
         soft-wrap.enable = true;
 
-        inline-diagnostics = {
-          cursor-line = "info";
-        };
+        # inline-diagnostics = {
+        #   cursor-line = "info";
+        # };
       };
 
       keys.insert = {
