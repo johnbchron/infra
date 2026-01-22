@@ -32,5 +32,7 @@ in {
     services.openssh.enable = true;
 
     virtualisation.docker.enable = true;
+
+    services.ollama.enable = true;
   };
 }
