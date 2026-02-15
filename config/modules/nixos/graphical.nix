@@ -36,7 +36,7 @@ in {
     nixpkgs = {
       config = {
         allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-          "obsidian"
+          "obsidian" "claude-code"
         ];
       };
 
