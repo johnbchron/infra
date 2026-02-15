@@ -1,8 +1,12 @@
-{ ... }: {
+{ pkgs, ... }: {
   system.stateVersion = "23.11";
 
   hardware.asahi-hardware.enable = true;
   services.idevices.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    usbutils # lsusb
+  ];
 
   graphical.enable = true;
 
