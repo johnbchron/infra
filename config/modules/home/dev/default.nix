@@ -6,6 +6,7 @@
     ./programs.nix
     ./vcs.nix
     ./helix.nix
+    ./ai.nix
   ];
   graphical = if osConfig.graphical.enable then [ ./graphical ] else [];
 in {

@@ -19,9 +19,6 @@
     # extra nix helpers
     comma nix-tree
 
-    # ai
-    claude-code
-
     # networking
     nmap inetutils cfspeedtest
 
