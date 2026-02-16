@@ -1,4 +1,4 @@
-{ lib, config, pkgs, jj-watch, system, ... } @ top: let
+{ lib, config, pkgs, jj-watch, system, nix-openclaw, ... } @ top: let
   cfg = config.development;
   utils = (import ../utils.nix) top;
   inherit (utils) mkEnableOptionDefaultOn;
@@ -18,7 +18,11 @@ in {
     programs.zsh.enable = lib.mkIf cfg.enable true;
 
     # add jj-watch to pkgs
-    nixpkgs.overlays = [ jj-watch-overlay ];
+    # add openclaw to pkgs
+    nixpkgs.overlays = [
+      jj-watch-overlay
+      nix-openclaw.overlays.default
+    ];
 
     # set /bin/sh to dash for speed
     # environment.binsh = lib.mkIf cfg.enable pkgs.dash;
