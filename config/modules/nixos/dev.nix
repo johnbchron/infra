@@ -1,4 +1,5 @@
-{ lib, config, pkgs, jj-watch, system, nix-openclaw, ... } @ top: let
+{ inputs, lib, config, pkgs, jj-watch, nix-openclaw, ... } @ top: let
+  system = pkgs.stdenv.hostPlatform.system;
   cfg = config.development;
   utils = (import ../utils.nix) top;
   inherit (utils) mkEnableOptionDefaultOn;
@@ -38,5 +39,12 @@ in {
     virtualisation.docker.enable = true;
 
     services.ollama.enable = true;
+
+    # allow bluehood the capabilities it needs
+    security.wrappers.bluehood = {
+      source = "${inputs.bluehood.packages."${system}".default}/bin/bluehood";
+      capabilities = "cap_net_admin,cap_net_raw+eip";
+      owner = "root"; group = "root";
+    };
   };
 }

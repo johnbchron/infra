@@ -10,7 +10,9 @@ localFlake: { inputs, config, systems, alacritty-theme, ... }: let
       useGlobalPkgs = true;
       useUserPackages = true;
       users.jlewis = { ... }: {
-        imports = builtins.attrValues config.flake.homeManagerModules;
+        imports = (builtins.attrValues config.flake.homeManagerModules) ++ [
+          inputs.bluehood.homeManagerModules.default
+        ];
       };
       extraSpecialArgs = specialArgs;
     };

@@ -50,5 +50,10 @@
   
   # replacement for `grep`
   programs.ripgrep.enable = true;
-}
 
+  services.bluehood = {
+    enable = true;
+    port = 9000;
+    executable = "/run/wrappers/bin/bluehood";
+  };
+}
