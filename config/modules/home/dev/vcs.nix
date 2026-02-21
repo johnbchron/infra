@@ -32,7 +32,7 @@
 
   programs.git = {
     enable = true;
-    ignores = [ ".direnv" "result" ".jj" ];
+    ignores = [ ".direnv" "result" ".jj" ".claude" ];
 
     signing = {
       # signByDefault = true;
