@@ -1,6 +1,6 @@
 { lib, ... }: {
   dconf.settings = let
-    background-uri = "file://${../../../../media/background_3.jpeg}";
+    background-uri = "file://${../../../../media/background.png}";
   in with lib.hm.gvariant; {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
