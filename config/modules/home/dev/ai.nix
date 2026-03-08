@@ -32,6 +32,7 @@
           mode = "off";
           resetOnExit = false;
         };
+        controlUi.root = "/home/jlewis/.openclaw/control-ui";
       };
       agents = {
         defaults = {
@@ -42,18 +43,6 @@
           };
         };
       };
-
-      # channels.telegram = {
-      #   # REPLACE: path to your bot token file
-      #   tokenFile = "<tokenPath>";
-      #   # REPLACE: your Telegram user ID (get from @userinfobot)
-      #   allowFrom = [ <allowFrom> ];
-      #   groups = {
-      #     "*" = {
-      #       requireMention = true;
-      #     };
-      #   };
-      # };
     };
   };
 }
