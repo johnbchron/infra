@@ -32,7 +32,7 @@
           mode = "off";
           resetOnExit = false;
         };
-        controlUi.root = "/home/jlewis/.openclaw/control-ui";
+        # controlUi.root = "/home/jlewis/.openclaw/control-ui";
       };
       agents = {
         defaults = {
