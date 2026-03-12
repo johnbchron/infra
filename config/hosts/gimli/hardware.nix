@@ -10,7 +10,16 @@
 
   graphical.enable = true;
 
-  networking.hostName = "gimli";
+  networking = {
+    hostName = "gimli";
+    firewall.allowedTCPPorts = [ 3000 ];
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    nssmdns6 = true;
+  };
   # networking = {
   #   networkmanager.enable = true;
   #   hostName = "gimli";
