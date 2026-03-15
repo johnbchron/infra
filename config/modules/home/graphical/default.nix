@@ -27,6 +27,7 @@ in {
       dconf-editor # dconf obv
       signal-desktop # messaging
       prusa-slicer # 3d printing
+      freecad # 3d modelling
       audacity # recording
 
       # games
