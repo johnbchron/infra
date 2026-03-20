@@ -52,5 +52,11 @@ in {
         name = "Adwaita";
       };
     };
+
+    # workaround to fix freecad
+    # https://github.com/NixOS/nixpkgs/issues/467783
+    xdg.systemDirs.data = [
+      "${pkgs.gtk3}/share/gsettings-schemas/gtk+3-${pkgs.gtk3.version}"
+    ];
   };
 }
