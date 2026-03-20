@@ -1,4 +1,9 @@
 { pkgs, ... }: {
+  # allow better snapshotting for JJ
+  home.packages = [
+    pkgs.watchman
+  ];
+  
   programs.jujutsu = {
     enable = true;
     settings = {
@@ -27,6 +32,17 @@
 
         diff-formatter = ["${pkgs.difftastic}/bin/difft" "--color=always" "$left" "$right"];
       };
+
+      signing = {
+        behavior = "own";
+        backend = "gpg";
+      };
+
+      git = {
+        sign-on-push = true;
+      };
+
+      fsmonitor.backend = "watchman";
     };
   };
 
