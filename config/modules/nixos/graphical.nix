@@ -56,9 +56,16 @@ in {
             }
           );
         };
+
+        # freecad-fix-overlay = final: prev: {
+        #   freecad = prev.freecad.overrideAttrs (old: {
+        #     nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ prev.wrapGAppsHook3 ];
+        #   });
+        # };
       in [
         iosevka-overlay
         difftastic-jemalloc-fixup-overlay
+        # freecad-fix-overlay
       ];
     };
 
