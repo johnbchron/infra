@@ -1,4 +1,4 @@
-{ lib, osConfig, pkgs, ... }: let
+{ lib, osConfig, pkgs, config, ... }: let
   cfg = osConfig.graphical;
 in {
   imports = if cfg.enable then [
@@ -47,6 +47,7 @@ in {
 
     gtk = {
       enable = true;
+      gtk4.theme = config.gtk.theme;
       iconTheme = {
         package = pkgs.adwaita-icon-theme;
         name = "Adwaita";

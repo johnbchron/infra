@@ -40,11 +40,11 @@ in {
 
     services.ollama.enable = true;
 
-    # allow bluehood the capabilities it needs
-    security.wrappers.bluehood = {
-      source = "${inputs.bluehood.packages."${system}".default}/bin/bluehood";
-      capabilities = "cap_net_admin,cap_net_raw+eip";
-      owner = "root"; group = "root";
-    };
+    # # allow bluehood the capabilities it needs
+    # security.wrappers.bluehood = {
+    #   source = "${inputs.bluehood.packages."${system}".default}/bin/bluehood";
+    #   capabilities = "cap_net_admin,cap_net_raw+eip";
+    #   owner = "root"; group = "root";
+    # };
   };
 }

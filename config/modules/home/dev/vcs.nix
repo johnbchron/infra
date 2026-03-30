@@ -53,6 +53,7 @@
     signing = {
       # signByDefault = true;
       key = "0x89C8A7794A74A0AB";
+      format = "openpgp";
     };
 
     lfs.enable = true;

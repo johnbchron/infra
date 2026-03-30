@@ -11,7 +11,7 @@ localFlake: { inputs, config, systems, alacritty-theme, ... }: let
       useUserPackages = true;
       users.jlewis = { ... }: {
         imports = (builtins.attrValues config.flake.homeManagerModules) ++ [
-          inputs.bluehood.homeManagerModules.default
+          # inputs.bluehood.homeManagerModules.default
         ];
       };
       extraSpecialArgs = specialArgs;
