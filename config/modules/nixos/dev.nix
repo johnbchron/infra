@@ -39,6 +39,7 @@ in {
     virtualisation.docker.enable = true;
 
     services.ollama.enable = true;
+    services.ollama.package = pkgs.ollama-vulkan;
 
     # # allow bluehood the capabilities it needs
     # security.wrappers.bluehood = {
