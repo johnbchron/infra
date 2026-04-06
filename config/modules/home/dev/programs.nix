@@ -31,7 +31,7 @@
     distrobox
 
     # misc
-    protonvpn-gui
+    proton-vpn
     sl # steam locomotive
     typer # typing test
     fastfetch # rip neofetch :(
