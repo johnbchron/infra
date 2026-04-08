@@ -3,8 +3,6 @@
   
   home.packages = with pkgs; [
     claude-code
-
-    signal-cli # for openclaw channel
   ];
 
   # programs.openclaw = {
