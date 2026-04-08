@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, jj-watch, nix-openclaw, ... } @ top: let
+{ inputs, lib, config, pkgs, jj-watch, ... } @ top: let
   system = pkgs.stdenv.hostPlatform.system;
   cfg = config.development;
   utils = (import ../utils.nix) top;
@@ -22,7 +22,7 @@ in {
     # add openclaw to pkgs
     nixpkgs.overlays = [
       jj-watch-overlay
-      nix-openclaw.overlays.default
+      # inputs.nix-openclaw.overlays.default
     ];
 
     # set /bin/sh to dash for speed

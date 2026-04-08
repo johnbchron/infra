@@ -11,7 +11,7 @@
       url = "github:alacritty/alacritty-theme";
       flake = false;
     };
-    nix-openclaw.url = "github:openclaw/nix-openclaw";
+    # nix-openclaw.url = "github:openclaw/nix-openclaw";
     # bluehood.url = "github:johnbchron/bluehood-flake";
     iosevka-pin.url = "github:NixOS/nixpkgs?rev=77a52192a7502c2385027651c81d269cb106dbde";
 

@@ -1,5 +1,5 @@
-{ pkgs, nix-openclaw, ... }: {
-  imports = [ nix-openclaw.homeManagerModules.openclaw ];
+{ pkgs, inputs, ... }: {
+  # imports = [ inputs.nix-openclaw.homeManagerModules.openclaw ];
   
   home.packages = with pkgs; [
     claude-code
