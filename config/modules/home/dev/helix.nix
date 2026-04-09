@@ -103,6 +103,12 @@
           command = "${pkgs.harper}/bin/harper-ls";
           args = [ "--stdio" ];
         };
+        tinymist = {
+          config = {
+            preview.background.enabled = true;
+            preview.background.args = ["--data-plane-host=127.0.0.1:23635" "--invert-colors=never" "--open"];
+          };
+        };
 
         # lsp-ai = {
         #   command = "${pkgs.lsp-ai}/bin/lsp-ai";
