@@ -76,17 +76,23 @@ in {
     services.printing.enable = true;
 
     fonts.packages = with pkgs; [
-      inter
+      # for OS font
       roboto
-      oswald
+      # for various things
+      inter
+      # oswald
 
-      iosevka-custom
-      iosevka-term-custom
-
-      ia-writer-quattro ia-writer-duospace
+      ibm-plex
 
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
+
+      # for the terminal
+      iosevka-custom
+      iosevka-term-custom
+
+      # for obsidian body copy
+      ia-writer-quattro ia-writer-duospace
     ];
   };
 }
