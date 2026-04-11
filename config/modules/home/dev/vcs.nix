@@ -34,7 +34,7 @@
       };
 
       signing = {
-        behavior = "own";
+        # behavior = "own";
         backend = "gpg";
       };
 
