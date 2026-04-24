@@ -5,28 +5,26 @@ in {
     hardware.asahi-hardware.enable = lib.mkEnableOption "asahi hardware config";
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     hardware.asahi = {
-      # switch asahi to default off
-      enable = cfg.enable;
-
-      peripheralFirmwareDirectory = lib.mkIf cfg.enable ../../../firmware;
+      enable = true;
+      peripheralFirmwareDirectory = ../../../firmware;
     };
 
     boot = {
       # necessary for asahi boot
-      loader = lib.mkIf cfg.enable {
+      loader = {
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = false;
       };
 
       # use full display height
-      kernelParams = lib.mkIf cfg.enable [
+      kernelParams = [
         "appledrm.show_notch=1"
       ];
 
       # just for fun
-      m1n1CustomLogo = lib.mkIf cfg.enable ../../../media/hexaradialis.png;
+      m1n1CustomLogo = ../../../media/hexaradialis.png;
     };
   };
 }
