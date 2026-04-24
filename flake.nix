@@ -16,7 +16,8 @@
     jj-watch.url = "github:johnbchron/jj-watch";
 
     apple-silicon-support = {
-      url = "github:nix-community/nixos-apple-silicon";
+      # url = "github:nix-community/nixos-apple-silicon";
+      url = "github:nix-community/nixos-apple-silicon/mesa-26.0.5";
     };
   };
 
