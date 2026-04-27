@@ -36,6 +36,12 @@ in {
 
     services.openssh.enable = true;
 
+    programs.ssh.extraConfig = ''
+      Host halide
+        HostName 5.78.187.180
+        User root
+    '';
+
     virtualisation.docker.enable = true;
 
     services.ollama.enable = true;
