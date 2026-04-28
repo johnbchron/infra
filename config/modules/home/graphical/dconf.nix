@@ -14,7 +14,7 @@
     "org/gnome/desktop/input-sources" = {
       show-all-sources = false;
       sources = [ (mkTuple [ "xkb" "us" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" ];
+      xkb-options = [ "terminate:ctrl_alt_bksp" "compose:ralt" ];
     };
 
     "org/gnome/desktop/interface" = {
