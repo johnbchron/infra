@@ -32,8 +32,8 @@
       directory = {
         truncation_length = 8;
         truncation_symbol = ">";
-        truncate_to_repo = false;
       };
+        truncate_to_repo = false;
       direnv = {
         disabled = false;
 
@@ -56,16 +56,23 @@
   programs.zellij = {
     enable = true;
     settings = {
+      on_force_close = "quit";
+
       theme = "catppuccin-mocha";
       default_layout = "compact";
-      session_serialization = false;
-      show_startup_tips = false;
+
       ui = {
         pane_frames = {
           rounded_corners = true;
         };
       };
+
+      session_serialization = false;
+
+      show_startup_tips = false;
+
       advanced_mouse_actions = false;
+      mouse_hover_effects = false;
     };
   };
 }
