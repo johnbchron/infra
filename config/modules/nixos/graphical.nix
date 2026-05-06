@@ -84,8 +84,9 @@ in {
 
       ibm-plex
 
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
+      noto-fonts
+      # noto-fonts-cjk-sans
+      # noto-fonts-cjk-serif
 
       # for the terminal
       iosevka-custom
