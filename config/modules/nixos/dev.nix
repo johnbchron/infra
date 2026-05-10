@@ -1,19 +1,11 @@
-{ inputs, lib, config, pkgs, jj-watch, ... } @ top: let
+{ lib, config, pkgs, jj-watch, ... }: let
   system = pkgs.stdenv.hostPlatform.system;
   cfg = config.development;
-  utils = (import ../utils.nix) top;
-  inherit (utils) mkEnableOptionDefaultOn;
 
   jj-watch-overlay = final: prev: {
     jj-watch = jj-watch.packages."${system}".jj-watch;
   };
 in {
-  options = {
-    development = {
-      enable = mkEnableOptionDefaultOn "enable development tools";
-    };
-  };
-
   config = lib.mkIf cfg.enable {
     # enable zsh for default user shell
     programs.zsh.enable = lib.mkIf cfg.enable true;

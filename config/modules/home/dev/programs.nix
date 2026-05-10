@@ -1,11 +1,10 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # basic shell utils
-    just file fzf
+    just file fzf git
 
     # vcs
     gitoxide
-    jj-watch
 
     # replace coreutils with rust rewrite
     uutils-coreutils-noprefix
@@ -20,15 +19,11 @@
     comma nix-tree
 
     # networking
-    nmap inetutils cfspeedtest
+    nmap inetutils
 
     # other utilities
     tio # serial device tool
     gurk-rs # signal client
-    pass gnome-keyring
-
-    # asahi vm stuff
-    distrobox
 
     # misc
     proton-vpn
@@ -36,7 +31,15 @@
     typer # typing test
     fastfetch # rip neofetch :(
     spotify-player
-  ];
+  ] ++ (pkgs.lib.optionals (!pkgs.stdenv.isDarwin) [
+    pass gnome-keyring
+
+    jj-watch
+    cfspeedtest
+
+    # asahi vm stuff
+    distrobox
+  ]);
   
   # replacement for `cat`
   programs.bat.enable = true;

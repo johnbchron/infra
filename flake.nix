@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     alacritty-theme = {
       url = "github:alacritty/alacritty-theme";
       flake = false;
@@ -21,7 +25,7 @@
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (top: {
-    systems = [ "x86_64-linux" "aarch64-linux" ];
+    systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
 
     imports = let
       inherit (top.flake-parts-lib) importApply;

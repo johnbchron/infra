@@ -32,8 +32,8 @@
       directory = {
         truncation_length = 8;
         truncation_symbol = ">";
-      };
         truncate_to_repo = false;
+      };
       direnv = {
         disabled = false;
 
