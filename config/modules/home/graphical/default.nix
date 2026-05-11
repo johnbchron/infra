@@ -8,44 +8,46 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       floorp-bin
-      ungoogled-chromium
 
-      # other apps
       anki # flashcards
       obsidian # notes & stuff
       # rpi-imager # disk imaging
-      obs-studio # recording & streaming
       # blender # video editing & compositing
-      qdirstat # disk space usage 
-      vlc # video playback
       fstl # viewing stl files
-      gimp # image editing
       # libreoffice-still # office stuff
       audacity # audio editing
-      fragments # torrents
       inkscape # vector editing
-      dconf-editor # dconf obv
       signal-desktop # messaging
+      audacity # recording
+
+      # audio
+      pulseaudio
+    ] ++ (lib.optionals pkgs.stdenv.isLinux [
+      # other apps
+      ungoogled-chromium # alternative browser
+      obs-studio # recording & streaming
+      qdirstat # disk space usage
+      dconf-editor # dconf obv
+      vlc # video playback
+      gimp # image editing
       prusa-slicer # 3d printing
       freecad # 3d modelling
-      audacity # recording
 
       # games
       mars
       prismlauncher
 
       # network
+      fragments
       qbittorrent
 
       # gnome stuff
       gnome-tweaks
       gnomeExtensions.just-perfection
+    ]) ++ (lib.optionals pkgs.stdenv.isDarwin [
+    ]);
 
-      # audio
-      pulseaudio
-    ];
-
-    gtk = {
+    gtk = lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
       gtk4.theme = config.gtk.theme;
       iconTheme = {
@@ -56,8 +58,10 @@ in {
 
     # workaround to fix freecad
     # https://github.com/NixOS/nixpkgs/issues/467783
-    xdg.systemDirs.data = [
-      "${pkgs.gtk3}/share/gsettings-schemas/gtk+3-${pkgs.gtk3.version}"
-    ];
+    xdg = lib.mkIf pkgs.stdenv.isLinux {
+      systemDirs.data = [
+        "${pkgs.gtk3}/share/gsettings-schemas/gtk+3-${pkgs.gtk3.version}"
+      ];
+    };
   };
 }

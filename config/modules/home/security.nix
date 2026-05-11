@@ -1,7 +1,7 @@
 { lib, osConfig, pkgs, ... }: let
   cfg = osConfig.security.gpg;
 in {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (pkgs.stdenv.isLinux && cfg.enable) {
     # gpg
     programs.gpg.enable = true;
 

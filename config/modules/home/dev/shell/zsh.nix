@@ -16,7 +16,9 @@
       ls = "eza";
       rt = "zellij action rename-tab \"$(basename \"$PWD\")\" && echo \"renamed zellij tab to \\\"$(basename \"$PWD\")\\\" (working directory)\"";
       q = "exit";
-      rebuild = "sudo nixos-rebuild switch --flake /home/jlewis/infra";
+      rebuild = if pkgs.stdenv.isDarwin then
+        "sudo darwin-rebuild switch --flake /Users/jlewis/infra#gimli-darwin" else
+        "sudo nixos-rebuild switch --flake /home/jlewis/infra";
       speed = "cfspeedtest";
       inherit tree;
       treeg = tree + " --git-ignore";
@@ -26,7 +28,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "nix-shell" ];
-      custom = "/home/jlewis/.config/ohmyzsh_custom";
+      custom = "/${if pkgs.stdenv.isDarwin then "Users" else "home"}/jlewis/.config/ohmyzsh_custom";
     };
 
     syntaxHighlighting = {

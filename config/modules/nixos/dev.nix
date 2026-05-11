@@ -8,7 +8,7 @@
 in {
   config = lib.mkIf cfg.enable {
     # enable zsh for default user shell
-    programs.zsh.enable = lib.mkIf cfg.enable true;
+    programs.zsh.enable = true;
 
     # add jj-watch to pkgs
     # add openclaw to pkgs
@@ -17,33 +17,9 @@ in {
       # inputs.nix-openclaw.overlays.default
     ];
 
-    # set /bin/sh to dash for speed
-    # environment.binsh = lib.mkIf cfg.enable pkgs.dash;
-
-    # set default editor to helix
-    environment.variables = {
-      "VISUAL" = "${pkgs.helix}/bin/hx";
-      "EDITOR" = "${pkgs.helix}/bin/hx";
-    };
-
-    services.openssh.enable = true;
-
-    programs.ssh.extraConfig = ''
-      Host halide
-        HostName 5.78.187.180
-        User root
-    '';
-
     virtualisation.docker.enable = true;
 
     services.ollama.enable = true;
     services.ollama.package = pkgs.ollama-vulkan;
-
-    # # allow bluehood the capabilities it needs
-    # security.wrappers.bluehood = {
-    #   source = "${inputs.bluehood.packages."${system}".default}/bin/bluehood";
-    #   capabilities = "cap_net_admin,cap_net_raw+eip";
-    #   owner = "root"; group = "root";
-    # };
   };
 }

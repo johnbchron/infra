@@ -18,17 +18,23 @@ in {
         # blur = true;
         startup_mode = "Fullscreen";
         dynamic_padding = true;
-        # option_as_alt = "Both";
+        option_as_alt = "Both";
       };
       
-      font = {
+      font = if pkgs.stdenv.isLinux then {
         normal =      { family = "Iosevka Term Custom"; style = "Regular"; };
         bold =        { family = "Iosevka Term Custom"; style = "Heavy"; };
         italic =      { family = "Iosevka Term Custom"; style = "Italic"; };
         bold_italic = { family = "Iosevka Term Custom"; style = "Heavy Italic"; };
 
         size = 14;
-        # builtin_box_drawing = false;
+      } else {
+        normal =      { family = "Noto Sans Mono"; style = "Regular"; };
+        bold =        { family = "Noto Sans Mono"; style = "Heavy"; };
+        italic =      { family = "Noto Sans Mono"; style = "Italic"; };
+        bold_italic = { family = "Noto Sans Mono"; style = "Heavy Italic"; };
+
+        size = 14;
       };
 
       colors = theme-config.colors;

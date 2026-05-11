@@ -33,14 +33,6 @@ localFlake: { inputs, config, systems, alacritty-theme, ... }: let
     };
   };
 
-  jj-watch-overlay-module = { inputs, system, ... }: {
-    nixpkgs.overlays = [
-      (final: prev: {
-        jj-watch = inputs.jj-watch.packages."${system}".jj-watch;
-      })
-    ];
-  };
-
   # collection of modules from a directory
   module-list-from-dir = dir: (with builtins;
     map
@@ -68,21 +60,6 @@ in {
     darwinConfigurations = {
       gimli-darwin = inputs.nix-darwin.lib.darwinSystem {
         modules = commonModules ++ darwinModules ++ [
-          jj-watch-overlay-module
-          ({ self, ... }: {
-            # Necessary for using flakes on this system.
-            # nix.settings.experimental-features = "nix-command flakes";
-
-            # Set Git commit hash for darwin-version.
-            system.configurationRevision = self.rev or self.dirtyRev or null;
-
-            # Used for backwards compatibility, please read the changelog before changing.
-            # $ darwin-rebuild changelog
-            system.stateVersion = 6;
-
-            # The platform the configuration will be used on.
-            nixpkgs.hostPlatform = "aarch64-darwin";
-          })
           darwinHomeManagerModule
         ];
         inherit specialArgs;
