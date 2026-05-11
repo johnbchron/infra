@@ -11,9 +11,6 @@ in {
       enable = mkEnableOptionDefaultOn
         "allow all users belonging to group \"wheel\" to use sudo without a password";
     };
-    security.gpg = {
-      enable = mkEnableOptionDefaultOn "enable gpg & agent";
-    };
   };
 
   config.security = let
