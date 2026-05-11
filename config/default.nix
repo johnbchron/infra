@@ -68,7 +68,6 @@ in {
     darwinConfigurations = {
       gimli-darwin = inputs.nix-darwin.lib.darwinSystem {
         modules = commonModules ++ darwinModules ++ [
-          ./modules/nixos/nix.nix
           jj-watch-overlay-module
           ({ self, ... }: {
             # Necessary for using flakes on this system.
