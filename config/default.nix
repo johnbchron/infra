@@ -6,6 +6,7 @@ localFlake: { inputs, config, systems, alacritty-theme, ... }: let
 
   commonModules = builtins.attrValues config.flake.commonModules;
   nixosModules = builtins.attrValues config.flake.nixosModules;
+  darwinModules = builtins.attrValues config.flake.darwinModules;
   homeManagerModules = builtins.attrValues config.flake.homeManagerModules;
 
   darwinHomeManagerModule = {
@@ -14,16 +15,9 @@ localFlake: { inputs, config, systems, alacritty-theme, ... }: let
       useGlobalPkgs = true;
       useUserPackages = true;
       users.jlewis = { ... }: {
-        home.username = "jlewis";
+        # home.username = "jlewis";
         # home.homeDirectory = "/Users/jlewis";
-
-        imports = commonModules ++ homeManagerModules ++ [
-          # ./modules/home/dev/helix.nix
-          # ./modules/home/dev/shell
-          # ./modules/home/dev/programs.nix
-          # ./modules/home/dev/graphical/default.nix
-          # ./modules/home/base.nix
-        ];
+        imports = homeManagerModules;
       };
       extraSpecialArgs = specialArgs;
     };
@@ -33,9 +27,7 @@ localFlake: { inputs, config, systems, alacritty-theme, ... }: let
       useGlobalPkgs = true;
       useUserPackages = true;
       users.jlewis = { ... }: {
-        imports = homeManagerModules ++ [
-          # inputs.bluehood.homeManagerModules.default
-        ];
+        imports = homeManagerModules;
       };
       extraSpecialArgs = specialArgs;
     };
@@ -75,7 +67,7 @@ in {
     };
     darwinConfigurations = {
       gimli-darwin = inputs.nix-darwin.lib.darwinSystem {
-        modules = [
+        modules = commonModules ++ [
           ./modules/nixos/nix.nix
           jj-watch-overlay-module
           ({ self, ... }: {
