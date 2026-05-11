@@ -7,6 +7,7 @@
     casks = [
       "ungoogled-chromium"
       "alacritty"
+      "signal"
     ];
   };
 }

@@ -17,7 +17,6 @@ in {
       # libreoffice-still # office stuff
       audacity # audio editing
       inkscape # vector editing
-      signal-desktop # messaging
       audacity # recording
 
       # audio
@@ -32,6 +31,7 @@ in {
       gimp # image editing
       prusa-slicer # 3d printing
       freecad # 3d modelling
+      signal-desktop # messaging
 
       # games
       mars
