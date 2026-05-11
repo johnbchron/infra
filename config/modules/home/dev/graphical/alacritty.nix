@@ -29,9 +29,9 @@ in {
 
         size = 14;
       } else {
-        normal =      { family = "Noto Sans Mono"; style = "Regular"; };
+        normal =      { family = "Noto Sans Mono"; style = "Medium"; };
         bold =        { family = "Noto Sans Mono"; style = "Heavy"; };
-        italic =      { family = "Noto Sans Mono"; style = "Italic"; };
+        italic =      { family = "Noto Sans Mono"; style = "Medium Italic"; };
         bold_italic = { family = "Noto Sans Mono"; style = "Heavy Italic"; };
 
         size = 14;
