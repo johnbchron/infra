@@ -22,9 +22,9 @@ in {
       };
       
       font = {
-        normal =      { family = "Iosevka Term Custom"; style = "SemiBold"; };
+        normal =      { family = "Iosevka Term Custom"; style = "Regular"; };
         bold =        { family = "Iosevka Term Custom"; style = "Heavy"; };
-        italic =      { family = "Iosevka Term Custom"; style = "SemiBold Italic"; };
+        italic =      { family = "Iosevka Term Custom"; style = "Italic"; };
         bold_italic = { family = "Iosevka Term Custom"; style = "Heavy Italic"; };
 
         size = 14;
