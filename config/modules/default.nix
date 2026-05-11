@@ -12,12 +12,14 @@ localFlake: { inputs, ... }: {
           (attrNames (readDir ./${dir}))));
   in {
     commonModules = module-dir-to-imported-map "common" // {
-      home-manager = inputs.home-manager.nixosModules.home-manager;
     };
     homeManagerModules = module-dir-to-imported-map "home";
     nixosModules = module-dir-to-imported-map "nixos" // {
+      home-manager = inputs.home-manager.nixosModules.home-manager;
       apple-silicon-support = inputs.apple-silicon-support.nixosModules.default;
     };
-    darwinModules = module-dir-to-imported-map "darwin";
+    darwinModules = module-dir-to-imported-map "darwin" // {
+      home-manager = inputs.home-manager.darwinModules.home-manager;
+    };
   };
 }

@@ -67,7 +67,7 @@ in {
     };
     darwinConfigurations = {
       gimli-darwin = inputs.nix-darwin.lib.darwinSystem {
-        modules = commonModules ++ [
+        modules = commonModules ++ darwinModules ++ [
           ./modules/nixos/nix.nix
           jj-watch-overlay-module
           ({ self, ... }: {
@@ -84,7 +84,6 @@ in {
             # The platform the configuration will be used on.
             nixpkgs.hostPlatform = "aarch64-darwin";
           })
-          inputs.home-manager.darwinModules.home-manager
           darwinHomeManagerModule
         ];
         inherit specialArgs;
