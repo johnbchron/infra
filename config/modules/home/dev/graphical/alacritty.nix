@@ -22,9 +22,9 @@ in {
       };
       
       font = if pkgs.stdenv.isLinux then {
-        normal =      { family = "Iosevka Term Custom"; style = "Regular"; };
+        normal =      { family = "Iosevka Term Custom"; style = "SemiBold"; };
         bold =        { family = "Iosevka Term Custom"; style = "Heavy"; };
-        italic =      { family = "Iosevka Term Custom"; style = "Italic"; };
+        italic =      { family = "Iosevka Term Custom"; style = "SemiBold Italic"; };
         bold_italic = { family = "Iosevka Term Custom"; style = "Heavy Italic"; };
 
         size = 14;
