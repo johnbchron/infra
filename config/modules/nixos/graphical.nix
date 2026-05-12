@@ -29,15 +29,17 @@ in {
 
     nixpkgs = {
       overlays = let
-        difftastic-jemalloc-fixup-overlay = final: prev: {
-          difftastic = prev.difftastic.overrideAttrs (
-            prev.lib.optionalAttrs (final.stdenv.system == "aarch64-linux") {
-              JEMALLOC_SYS_WITH_LG_PAGE = 16;
-            }
-          );
+        # instantiate pkgs from the iosevka pin with my config
+        iosevka-pin-pkgs = import iosevka-pin {
+          inherit system;
+          overlays = [ (import ../../../extra/iosevka-config.nix) ];
+        };
+        # add the iosevka packages to the current pkgs
+        iosevka-overlay = final: prev: {
+          inherit (iosevka-pin-pkgs) iosevka-custom iosevka-term-custom;
         };
       in [
-        difftastic-jemalloc-fixup-overlay
+        iosevka-overlay
       ];
     };
 
