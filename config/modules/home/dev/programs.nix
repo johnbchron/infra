@@ -5,6 +5,7 @@
 
     # vcs
     gitoxide
+    jj-watch
 
     # replace coreutils with rust rewrite
     uutils-coreutils-noprefix
@@ -34,7 +35,6 @@
   ] ++ (pkgs.lib.optionals (!pkgs.stdenv.isDarwin) [
     pass gnome-keyring
 
-    jj-watch
     cfspeedtest
 
     # asahi vm stuff

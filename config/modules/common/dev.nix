@@ -1,5 +1,10 @@
-{ lib, pkgs, config, ... } @ top: let
+{ lib, pkgs, config, jj-watch, ... } @ top: let
   cfg = config.development;
+  system = pkgs.stdenv.hostPlatform.system;
+
+  jj-watch-overlay = final: prev: {
+    jj-watch = jj-watch.packages."${system}".jj-watch;
+  };
 
   utils = (import ../utils.nix) top;
   inherit (utils) mkEnableOptionDefaultOn;
@@ -24,5 +29,10 @@ in {
         HostName 5.78.187.180
         User root
     '';
+
+    nixpkgs.overlays = [
+      jj-watch-overlay
+      # inputs.nix-openclaw.overlays.default
+    ];
   };
 }
