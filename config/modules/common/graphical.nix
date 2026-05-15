@@ -37,13 +37,14 @@ in {
 
       ibm-plex
 
-      noto-fonts
-      # noto-fonts-cjk-sans
-      # noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
 
       # for obsidian body copy
       ia-writer-quattro ia-writer-duospace
-    ];
+    ] ++ (lib.optionals pkgs.stdenv.isDarwin (with pkgs; [
+      noto-fonts
+    ]));
   };
 }
 
