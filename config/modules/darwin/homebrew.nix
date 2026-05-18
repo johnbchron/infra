@@ -8,6 +8,7 @@
       "ungoogled-chromium"
       "alacritty"
       "signal"
+      "obsidian"
     ];
   };
 }
