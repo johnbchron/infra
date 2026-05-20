@@ -9,6 +9,7 @@
       "alacritty"
       "signal"
       "obsidian"
+      "spotify"
     ];
   };
 }
