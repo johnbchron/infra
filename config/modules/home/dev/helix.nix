@@ -37,6 +37,7 @@
         lsp = {
           display-progress-messages = true;
           display-inlay-hints = true;
+          inlay-hints-length-limit = 30;
           snippets = false;
         };
 
