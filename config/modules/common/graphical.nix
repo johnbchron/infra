@@ -1,4 +1,4 @@
-{ lib, config, pkgs, system, iosevka-pin, ... }: let
+{ lib, config, pkgs, ... }: let
   cfg = config.graphical;
 in {
   options = {
@@ -16,6 +16,7 @@ in {
       };
 
       overlays = let
+        # fix jemalloc within difftastic
         difftastic-jemalloc-fixup-overlay = final: prev: {
           difftastic = prev.difftastic.overrideAttrs (
             prev.lib.optionalAttrs (final.stdenv.system == "aarch64-linux") {
@@ -29,6 +30,8 @@ in {
     };
 
     fonts.packages = with pkgs; [
+      iosevka-bin
+
       # for OS font
       roboto
       # for various things

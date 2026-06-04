@@ -1,4 +1,4 @@
-{ lib, config, pkgs, system, iosevka-pin, ... }: let
+{ lib, config, pkgs, ... }: let
   cfg = config.graphical;
 in {
   config = lib.mkIf cfg.enable {
@@ -27,31 +27,10 @@ in {
 
     networking.networkmanager.enable = true;
 
-    nixpkgs = {
-      overlays = let
-        # instantiate pkgs from the iosevka pin with my config
-        iosevka-pin-pkgs = import iosevka-pin {
-          inherit system;
-          overlays = [ (import ../../../extra/iosevka-config.nix) ];
-        };
-        # add the iosevka packages to the current pkgs
-        iosevka-overlay = final: prev: {
-          inherit (iosevka-pin-pkgs) iosevka-custom iosevka-term-custom;
-        };
-      in [
-        iosevka-overlay
-      ];
-    };
-
     services.pipewire.enable = true;
     services.pipewire.wireplumber.enable = true;
 
     programs.dconf.enable = true;
     services.printing.enable = true;
-
-    fonts.packages = with pkgs; [
-      iosevka-custom
-      iosevka-term-custom
-    ];
   };
 }
