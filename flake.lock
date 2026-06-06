@@ -162,11 +162,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1780079595,
-        "narHash": "sha256-7xTc5hEIhobIyBWjg5Yr8BswFjRNSrsMiOVp1QptFcU=",
+        "lastModified": 1780780682,
+        "narHash": "sha256-LxObU7lSLnWLOs6IOvdkBv8dN5KC3E5vVIlZR20YC+o=",
         "owner": "johnbchron",
         "repo": "jj-watch",
-        "rev": "28b1cb88c1102683d2095f2b8d947e31f98dbc02",
+        "rev": "9a5ac63f8ee50bc07340cc89bffdd2e7489555eb",
         "type": "github"
       },
       "original": {
