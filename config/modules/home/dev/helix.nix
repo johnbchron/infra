@@ -107,7 +107,7 @@
         tinymist = {
           config = {
             preview.background.enabled = true;
-            preview.background.args = ["--data-plane-host=127.0.0.1:0" "--invert-colors=never""--open"];
+            preview.background.args = ["--data-plane-host=127.0.0.1:0" "--invert-colors=never" "--open"];
           };
         };
 
