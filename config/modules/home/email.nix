@@ -5,7 +5,7 @@
   };
 
   programs.thunderbird = {
-    enable = true;
+    # enable = true;
     profiles.default.isDefault = true;
   };
 
