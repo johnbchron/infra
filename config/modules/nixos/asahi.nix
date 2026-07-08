@@ -11,6 +11,9 @@ in {
       peripheralFirmwareDirectory = ../../../firmware;
     };
 
+    # turn off ambient light sensor
+    hardware.sensor.iio.enable = false;
+
     boot = {
       # necessary for asahi boot
       loader = {
