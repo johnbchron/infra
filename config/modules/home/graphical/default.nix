@@ -35,6 +35,7 @@ in {
 
       # games
       mars
+      libremines
       prismlauncher
 
       # network
