@@ -17,6 +17,7 @@ localFlake: { inputs, ... }: {
     nixosModules = module-dir-to-imported-map "nixos" // {
       home-manager = inputs.home-manager.nixosModules.home-manager;
       apple-silicon-support = inputs.apple-silicon-support.nixosModules.default;
+      steam-asahi = inputs.steam-asahi.nixosModules.default;
     };
     darwinModules = module-dir-to-imported-map "darwin" // {
       home-manager = inputs.home-manager.darwinModules.home-manager;

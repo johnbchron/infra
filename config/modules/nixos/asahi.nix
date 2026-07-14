@@ -21,10 +21,17 @@ in {
         efi.canTouchEfiVariables = false;
       };
 
-      # use full display height
       kernelParams = [
+        # use full display height
         "appledrm.show_notch=1"
+
+        # use zswap
+        "zswap.enabled=1"
+        "zswap.compressor=zstd"
+        "zswap.zpool=zsmalloc"
+        "zswap.max_pool_percent=20"
       ];
+
 
       # just for fun
       m1n1CustomLogo = ../../../media/hexaradialis.png;

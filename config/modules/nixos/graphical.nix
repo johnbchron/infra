@@ -27,8 +27,17 @@ in {
 
     networking.networkmanager.enable = true;
 
-    services.pipewire.enable = true;
-    services.pipewire.wireplumber.enable = true;
+    services.pipewire = {
+      enable = true;
+      wireplumber.enable = true;
+
+      # for steam
+      alsa.enable = true;
+      pulse.enable = true;
+    };
+
+    # steam
+    programs.steam-asahi.enable = true;
 
     programs.dconf.enable = true;
     services.printing.enable = true;

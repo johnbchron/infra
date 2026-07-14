@@ -11,6 +11,10 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    steam-asahi = {
+      url = "git+https://codeberg.org/ooonea/steam-asahi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     alacritty-theme = {
       url = "github:alacritty/alacritty-theme";
       flake = false;
