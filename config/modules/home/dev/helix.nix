@@ -181,6 +181,11 @@
             args = [ "fmt" "-" ];
           };
         }
+        # reserve .pl extension for prolog
+        {
+          name = "perl";
+          file-types = [ "perl" ];
+        }
       ];
 
       # note: in order for this grammar to work, run the following:
