@@ -121,7 +121,7 @@
       disable-user-extensions = false;
       disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "desktop-cube@schneegans.github.com" "paperwm@paperwm.github.com" "system-monitor@gnome-shell-extensions.gcampax.github.com" "apps-menu@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" ];
       enabled-extensions = [ "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" ];
-      favorite-apps = [ "Alacritty.desktop" "floorp.desktop" "obsidian.desktop" "signal-desktop.desktop"];
+      favorite-apps = [ "Alacritty.desktop" "chromium-browser.desktop" "obsidian.desktop" "signal-desktop.desktop"];
       welcome-dialog-last-shown-version = "44.5";
     };
 
