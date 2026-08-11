@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: let
+{ lib, config, ... }: let
   cfg = config.development;
 in {
   config = lib.mkIf cfg.enable {
@@ -7,7 +7,7 @@ in {
 
     virtualisation.docker.enable = true;
 
-    services.ollama.enable = true;
-    services.ollama.package = pkgs.ollama-vulkan;
+    # services.ollama.enable = true;
+    # services.ollama.package = pkgs.ollama-vulkan;
   };
 }
