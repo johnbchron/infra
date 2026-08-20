@@ -36,8 +36,8 @@ in {
       pulse.enable = true;
     };
 
-    # steam
-    programs.steam-asahi.enable = true;
+    # # steam
+    # programs.steam-asahi.enable = true;
 
     programs.dconf.enable = true;
     services.printing.enable = true;
