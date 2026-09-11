@@ -7,10 +7,8 @@ in {
     services.desktopManager.gnome.enable = true;
     services.displayManager.gdm.enable = true;
 
-    environment.gnome.excludePackages = (with pkgs; [
-      gnome-photos
+    environment.gnome.excludePackages = with pkgs; [
       gnome-tour
-    ]) ++ (with pkgs; [
       gnome-music
       # gedit # text editor
       epiphany # web browser
@@ -23,7 +21,7 @@ in {
       gnome-contacts
       gnome-initial-setup
       gnome-calendar
-    ]);
+    ];
 
     networking.networkmanager.enable = true;
 
