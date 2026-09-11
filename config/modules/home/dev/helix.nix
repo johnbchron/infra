@@ -1,4 +1,16 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: let
+  evergarden_repo = pkgs.fetchFromCodeberg {
+    owner = "evergarden";
+    repo = "helix";
+    rev = "53cad3aa26";
+    hash = "sha256-uxy6Mir+g1yWK0NOLnxq4fP9ogv9YcEaA5EgDF/0sSU=";
+  };
+in {
+  xdg.configFile."helix/themes" = {
+    source = "${evergarden_repo}/themes";
+    recursive = true;
+  };
+  
   programs.helix = {
     enable = true;
    
@@ -6,7 +18,8 @@
       # theme = "kanagawa";
       # theme = "everforest_dark";
       # theme = "catppuccin_macchiato";
-      theme = "rose_pine";
+      # theme = "rose_pine";
+      theme = "evergarden_winter_skye";
 
       editor = {
         line-number = "relative";
