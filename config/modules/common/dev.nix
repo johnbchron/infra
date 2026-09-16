@@ -32,7 +32,6 @@ in {
 
     nixpkgs.overlays = [
       jj-watch-overlay
-      # inputs.nix-openclaw.overlays.default
     ];
   };
 }
