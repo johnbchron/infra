@@ -56,6 +56,15 @@
   programs.zellij = {
     enable = true;
     settings = {
+      keybinds.normal._children = [
+        {
+          bind = {
+            _args = ["Ctrl Alt g"];
+            Write._args = [ 007 ];
+          };
+        }
+      ];
+      
       on_force_close = "quit";
 
       theme = "catppuccin-mocha";
