@@ -7,6 +7,9 @@
     gitoxide
     jj-watch
 
+    # basic dev
+    python3
+
     # replace coreutils with rust rewrite
     uutils-coreutils-noprefix
 
