@@ -9,6 +9,8 @@ in {
     home.packages = with pkgs; [
       floorp-bin
 
+      dendrite # task management
+
       anki # flashcards
       obsidian # notes & stuff
       # rpi-imager # disk imaging

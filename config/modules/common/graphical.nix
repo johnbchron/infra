@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: let
+{ lib, config, pkgs, dendrite, ... }: let
   cfg = config.graphical;
 in {
   options = {
@@ -26,6 +26,7 @@ in {
         };
       in [
         difftastic-jemalloc-fixup-overlay
+        dendrite.overlays.default
       ];
     };
 
