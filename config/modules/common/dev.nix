@@ -1,10 +1,5 @@
 { lib, pkgs, config, jj-watch, ... } @ top: let
   cfg = config.development;
-  system = pkgs.stdenv.hostPlatform.system;
-
-  jj-watch-overlay = final: prev: {
-    jj-watch = jj-watch.packages."${system}".jj-watch;
-  };
 
   utils = (import ../utils.nix) top;
   inherit (utils) mkEnableOptionDefaultOn;
@@ -31,7 +26,7 @@ in {
     '';
 
     nixpkgs.overlays = [
-      jj-watch-overlay
+      jj-watch.overlays.default
     ];
   };
 }
