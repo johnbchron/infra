@@ -24,9 +24,13 @@ in {
             }
           );
         };
+        papercut-client-overlay = final: prev: {
+          papercut-client = pkgs.callPackage ../../../packages/papercut.nix {};
+        };
       in [
         difftastic-jemalloc-fixup-overlay
         dendrite.overlays.default
+        papercut-client-overlay
       ];
     };
 

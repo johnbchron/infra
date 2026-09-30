@@ -10,6 +10,7 @@ in {
       floorp-bin
 
       dendrite # task management
+      papercut-client
 
       anki # flashcards
       obsidian # notes & stuff

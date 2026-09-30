@@ -1,0 +1,8 @@
+[version]
+name-with-version=PaperCut NG 26.0.5 (Build 76603)
+name=PaperCut NG
+version-major=26
+version-minor=0
+version-patch=5
+version-suffix=
+version-build=76603
