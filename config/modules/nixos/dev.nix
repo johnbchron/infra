@@ -7,7 +7,8 @@ in {
 
     virtualisation.docker.enable = true;
 
-    # services.ollama.enable = true;
-    # services.ollama.package = pkgs.ollama-vulkan;
+    services.guix = {
+      enable = true;
+    };
   };
 }
