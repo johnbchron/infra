@@ -20,7 +20,6 @@ in {
       # libreoffice-still # office stuff
       audacity # audio editing
       inkscape # vector editing
-      audacity # recording
 
       # audio
       pulseaudio
