@@ -18,7 +18,7 @@ in {
       # blender # video editing & compositing
       fstl # viewing stl files
       # libreoffice-still # office stuff
-      audacity # audio editing
+      # audacity # audio editing
       inkscape # vector editing
 
       # audio
