@@ -76,6 +76,8 @@
         };
       };
 
+      scroll_mode_sync = false;
+
       session_serialization = false;
 
       show_startup_tips = false;
