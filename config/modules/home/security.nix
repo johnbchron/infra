@@ -1,6 +1,6 @@
 { lib, osConfig, pkgs, ... }: let
   cfg = osConfig.security.gpg;
-  isLinux = pkgs.stdenv.isLinux;
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
 
   pinentry_package = if isLinux then pkgs.pinentry-gnome3 else pkgs.pinentry_mac;
 in {

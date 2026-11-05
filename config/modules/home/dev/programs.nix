@@ -35,7 +35,7 @@
     typer # typing test
     fastfetch # rip neofetch :(
     spotify-player
-  ] ++ (pkgs.lib.optionals (!pkgs.stdenv.isDarwin) [
+  ] ++ (pkgs.lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
     pass gnome-keyring
 
     cfspeedtest

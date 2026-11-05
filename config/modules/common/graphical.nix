@@ -50,7 +50,7 @@ in {
 
       # for obsidian body copy
       ia-writer-quattro ia-writer-duospace
-    ] ++ (lib.optionals pkgs.stdenv.isDarwin (with pkgs; [
+    ] ++ (lib.optionals pkgs.stdenv.hostPlatform.isDarwin (with pkgs; [
       noto-fonts
     ]));
   };

@@ -20,7 +20,7 @@ in {
         option_as_alt = "Both";
       };
 
-      font = if pkgs.stdenv.isLinux then {
+      font = if pkgs.stdenv.hostPlatform.isLinux then {
         normal =      { family = "Iosevka Term"; style = "Semibold"; };
         bold =        { family = "Iosevka Term"; style = "Heavy"; };
         italic =      { family = "Iosevka Term"; style = "Semibold Italic"; };

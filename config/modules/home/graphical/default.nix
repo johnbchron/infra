@@ -23,7 +23,7 @@ in {
 
       # audio
       pulseaudio
-    ] ++ (lib.optionals pkgs.stdenv.isLinux [
+    ] ++ (lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       # other apps
       ungoogled-chromium # alternative browser
       obs-studio # recording & streaming
@@ -47,10 +47,10 @@ in {
       # gnome stuff
       gnome-tweaks
       gnomeExtensions.just-perfection
-    ]) ++ (lib.optionals pkgs.stdenv.isDarwin [
+    ]) ++ (lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
     ]);
 
-    gtk = lib.mkIf pkgs.stdenv.isLinux {
+    gtk = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       enable = true;
       gtk4.theme = config.gtk.theme;
       iconTheme = {
@@ -61,7 +61,7 @@ in {
 
     # workaround to fix freecad
     # https://github.com/NixOS/nixpkgs/issues/467783
-    xdg = lib.mkIf pkgs.stdenv.isLinux {
+    xdg = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       systemDirs.data = [
         "${pkgs.gtk3}/share/gsettings-schemas/gtk+3-${pkgs.gtk3.version}"
       ];
