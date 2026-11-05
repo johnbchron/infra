@@ -6,6 +6,7 @@
     settings = {
       inline_height = 0;
       enter_accept = true;
+      ai.enabled = false;
     };
     enable = true;
   };
